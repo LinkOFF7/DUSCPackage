@@ -14,6 +14,8 @@ namespace DUSCPackage
 
         private string hashString_;
 
+		public byte[] storedHash;
+
 		public Hash128(string hash)
 		{
 			if (hash.Length != 32)
@@ -27,6 +29,7 @@ namespace DUSCPackage
 
 		public Hash128(byte[] hash, int pos = 0, int len = 16)
 		{
+			storedHash = hash;
 			if (hash.Length < pos + len)
 			{
 				throw new ArgumentException("Invalid hash array size");
